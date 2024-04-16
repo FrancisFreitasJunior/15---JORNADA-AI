@@ -3,7 +3,7 @@ function randomRange(min, max) {
 }
 
 function lerp(a, b, t) {
-    return a + (a-b) * t
+    return a + (b - a) * t;
 }
 
 class Neuron {
@@ -59,7 +59,7 @@ class RNA {
     return list;
     }
 
-    mutate(rate = 0.5) {
+    mutate(rate = 1) {
     for (const level of this.levelList) {
         for (const neuron of level) neuron.mutate(rate);
     }
@@ -89,5 +89,6 @@ class RNA {
     return this.levelList;
     }
 }
+
 
 export default RNA;
